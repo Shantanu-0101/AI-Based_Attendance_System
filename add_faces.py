@@ -24,7 +24,8 @@ while True:
     
     for (x, y, w, h) in faces:
         crop_img = frame[y:y+h, x:x+w, : ]
-        resized_img = cv2.resize(crop_img, (50,50))
+        gray_crop = cv2.cvtColor(crop_img, cv2.COLOR_BGR2GRAY)
+        resized_img = cv2.resize(gray_crop, (50,50))
         if len(faces_data)<=100 and i%10==0:
             faces_data.append(resized_img)
         i=i+1
@@ -61,11 +62,11 @@ else:
 if 'faces_data.pkl' not in os.listdir('Data/'):
     
     with open('Data/faces_data.pkl', 'wb') as f:
-        pickle.dump(faces, f)
+        pickle.dump(faces_data, f)
 else:
     with open('Data/faces_data.pkl', 'rb') as f:
         faces = pickle.load(f)
-    faces_data=np.append(faces, faces_data, axis=0)
+    faces=np.append(faces, faces_data, axis=0)
     with open('Data/faces_data.pkl', 'wb') as f:
         pickle.dump(faces, f) 
 

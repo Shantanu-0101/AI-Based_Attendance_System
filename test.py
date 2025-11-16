@@ -34,7 +34,7 @@ LABELS = LABELS[:min_len]
 # Set n_neighbors based on available samples
 n_neighbors = min(5, len(FACES))
 
-IMG_SIZE = 2
+IMG_SIZE = 50
 
 knn = KNeighborsClassifier(n_neighbors=n_neighbors)
 knn.fit(FACES, LABELS)
@@ -54,7 +54,7 @@ while True:
     for (x, y, w, h) in faces:
         crop_img = frame[y:y+h, x:x+w, : ]
         gray_crop = cv2.cvtColor(crop_img, cv2.COLOR_BGR2GRAY)
-        resized_img = cv2.resize(gray_crop, (IMG_SIZE, IMG_SIZE)).flatten().reshape(1,-1)
+        resized_img = cv2.resize(gray_crop, (50, 50)).flatten().reshape(1,-1)
         output = knn.predict(resized_img)
 
         ts = time.time()
@@ -74,7 +74,7 @@ while True:
     k = cv2.waitKey(1)
     
     if k == ord('o'):
-          speak("Attendance Taken Successfully..")
+          speak("Attendance TAKEN Successfully..")
           time.sleep(3)
           if exist:
                 with open("Attendance/Attendance_"+ date + ".csv", "+a" ) as csvfile:
