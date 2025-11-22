@@ -1,4 +1,4 @@
-# AI-Based Face Recognition Attendance System
+# AI-Based Face Recognition Attendance System.
 
 A real-time face recognition attendance system built with Python, OpenCV, and Machine Learning. The system captures faces through a webcam, recognizes registered users, and automatically logs their attendance with timestamps.
 
