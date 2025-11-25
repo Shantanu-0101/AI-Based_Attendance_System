@@ -4,7 +4,7 @@ A real-time face recognition attendance system built with Python, OpenCV, and Ma
 
 ## Features
 
-- **Real-time Face Detection**: Uses Haar Cascade classifier for accurate face detection
+- **Real-time Face Detection**: Uses Haar Cascade classifier for accurate face detection.
 - **Face Recognition**: Implements the K-Nearest Neighbors (KNN) algorithm for face recognition
 - **Automated Attendance Logging**: Records attendance with date and time stamps in CSV format
 - **Voice Feedback**: Provides audio confirmation when attendance is marked
